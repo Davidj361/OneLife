@@ -79,12 +79,12 @@ fi
 
 if [ ! -e minorGems ]
 then
-	git clone https://github.com/hetuw/minorGems	
+	git clone git@github.com:Davidj361/minorGems.git
 fi
 
 if [ ! -e OneLife ]
 then
-	git clone https://github.com/hetuw/OneLife
+	git clone git@github.com:Davidj361/OneLife.git
 fi
 
 
