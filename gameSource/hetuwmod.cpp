@@ -2662,9 +2662,16 @@ bool HetuwMod::livingLifePageMouseDown( float mX, float mY ) {
 		for (unsigned i=0; i<homePosStack.size(); i++) {
 			if (mX >= homePosStack[i]->drawStartPos.x && mX <= homePosStack[i]->drawEndPos.x) {
 				if (mY >= homePosStack[i]->drawStartPos.y && mY <= homePosStack[i]->drawEndPos.y) {
-					cordOffset.x = -homePosStack[i]->x;
-					cordOffset.y = -homePosStack[i]->y;
-					return true;
+					// delete waypoint
+					if (isCommandKeyDown() &&
+						homePosStack[i]->type == hpt_custom) {
+						homePosStack.erase(homePosStack.begin() + i);
+						return true;
+					} else { // zero coordinates on waypoint
+						cordOffset.x = -homePosStack[i]->x;
+						cordOffset.y = -homePosStack[i]->y;
+						return true;
+					}
 				}
 			}
 		}
